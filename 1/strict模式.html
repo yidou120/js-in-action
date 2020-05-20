@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>strict模式</title>
+    <script>
+        'use strict' //写在js的第一行
+        // 在js设计之初，并不需要使用var就可以申请变量，但是这个设计是个弊端，如果不使用
+        // var申请变量的话，此时的变量都是全局变量
+        // 假如在同一个页面的不同js文件中，都不适用var，并且都使用了变量i
+        // 就会造成i相互影响，产生错误
+        alert('使用var申请的变量都是局部变量，被限制在函数体内，不同函数体内的同名变量不影响');
+        alert('为了修补js的这个设计缺陷,ECMA推出了strict模式,在这个模式下的变量,强制通过var申请,如果不用var,则会报错')
+        abc = 'hello';
+        // Uncaught ReferenceError: abc is not defined
+        console.log(abc);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

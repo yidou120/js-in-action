@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型和变量</title>
+    <script>
+        //1.Number类型
+        var n1 = 1;
+        var n2 = 1.1;
+        //2.字符串
+        var s1 = 'test';
+        var s2 = 'testtest';
+        //3.布尔类型
+        var b1 = true;
+        var b2 = false;
+        //4.数组类型
+        var a1 = [1,2,'3',4];
+        var a2 = new Array(1,2,3);
+        //5.对象
+        var o1 = {
+            name: 'object1',
+            sex: '0',
+            age: 12,
+            hasCar: true,
+            zipCode: null
+        }
+        alert(o1.age);
+        //比较 == / ===
+        //==比较之前 如果类型不一样，会进行转换
+        //=== 如果类型不一样，直接不相等
+        alert(true==1);  //true
+        alert(true===1); //false
+        //null undefined区别
+        alert('null代表一个空值，undefined代表变量值未定义');
+        //''代表长度为0的空字符串 undefined在函数参数是否传递的情况下有用
+    </script>
+</head>
+<body>
+
+</body>
+</html>
