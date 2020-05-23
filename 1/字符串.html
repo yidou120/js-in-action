@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串</title>
+    <script>
+        var str1 = 'I\'m \"ok\"';
+        //多行字符串
+        var str2 = `多行
+        字符串
+        测试`;
+        alert(str2);
+        //字符串拼接可以用+
+        //es6提供的模板字符串
+        var name = 'edou';
+        var age = 14;
+        alert(`I am ${name},age is ${age}`);
+        //操作字符串
+        alert(str1.length);
+        console.log(str1[1]);
+        console.log(str1[100]);  //超出索引 返回undefined
+        //在js中字符串也是不可变的 下面的方法 会返回新的字符串
+        var s1 = "hello";
+        console.log(s1.toUpperCase());
+        var s2 = "HeLLo";
+        console.log(s2.toLowerCase());
+        //返回指定字符串的索引
+        s1.indexOf('llo'); //返回2
+        s1.indexOf('w'); //返回-1
+        //返回指定索引区间的子串
+        console.log(s1.substring(2,4)); //从index 2到index 4 不包括4 返回ll
+        console.log(s1.substring(1)); //从1开始到结束 返回ello
+    </script>
+</head>
+<body>
+
+</body>
+</html>
