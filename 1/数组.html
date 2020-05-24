@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组</title>
+    <script>
+        var arr1 = [1,2,3];
+        console.log(arr1.length);
+        //直接给数组的length赋一个新的长度，会改变数组
+        arr1.length = 6; //其余都是undefined
+        //也可以通过索引改变数组元素值
+        arr1[3] = 4;
+        console.log(arr1);
+        console.log(arr1.indexOf(2)); //元素2的索引为1
+        //slice()也就是String的substring()，截取部分元素
+        var arr2 = ['a','b','c','d','e'];
+        arr2.slice(2);
+        arr2.slice(3,5); //不包括索引5的元素
+        //如果不给slice传递参数 将得到一个copy数组的效果
+        var arr3 = arr2.slice();
+        //push pop 在数组末尾添加 删除元素
+        arr3.push('f','d');
+        arr3.pop();
+        //unshift shift在数组头部 添加/删除元素
+        arr3.shift();
+        arr3.unshift('g','l');
+        //sort 进行排序
+        var arr4 = ['B','C','A'];
+        arr4.sort();
+        //reverse反转元素
+        //splice可以删除元素也可以添加元素
+        var arr5 = ['baidu','alibaba','bytedance','yahoo'];
+        arr5.splice(2,0,'test'); // baidu alibaba test bytedance yahoo 从索引2添加test元素
+        console.log(arr5);
+        arr5.splice(2,2); //baidu alibaba yahoo //从索引2开始删除两个元素
+        console.log(arr5);
+        arr5.splice(1,1,'ten'); //删除索引1元素 并在该位置添加ten元素
+        console.log(arr5);
+        //concat 拼接数组 原数组不会改变 返回新的数组
+        var arr6 = arr5.concat('test');
+        console.log(arr6);
+        console.log(arr5);
+        arr5.concat('1',['a','b']);
+        //join 将数组中的元素以指定字符串 分割
+        var arr7 = arr5.join('-');
+        console.log(arr7);
+        //多维数组
+        var arr8 = [[1,3],[5,6,8],[9,10]];
+        console.log(arr8[1][2]); //8
+    </script>
+</head>
+<body>
+
+</body>
+</html>
