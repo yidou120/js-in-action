@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环</title>
+    <script>
+        'use strict';
+        var o1 = {
+            name:'Jack',
+            age:21,
+            city:'hrb'
+        };
+        for(var v1 in o1){
+            if(o1.hasOwnProperty(v1)){
+                // alert(v1);
+                console.log(v1);
+            }
+            // alert(v1)
+        }
+        var a = ['a','b','c'];
+        for(var index in a){
+            // alert(index);  //0 1 2
+            console.log(index);
+        }
+        //计算1到100和
+        var i = 1;
+        var sum = 0;
+        while(i<=100){
+            sum = sum + i;
+            i++;
+        }
+        console.log(sum);
+        //使用do while
+        var n = 1;
+        var s = 0;
+        do{
+            s = s + n;
+            n++;
+        }while (n <= 100)
+        console.log(s);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
