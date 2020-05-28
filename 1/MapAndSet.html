@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map/Set</title>
+    <script>
+        'use strict';
+        //map 不存在重复的key 但可以有重复的value
+        var m = new Map([['xiaoli',100],['xiaowang',99],['xiaozhang',77]]);
+        console.log(m.get('xiaoli'));
+        m.set('xiaoming',66);
+        console.log(m.get('xiaoming'));
+        var b1 = m.has('xiaowang');
+        var b2 = m.has('xiaoxiao');
+        console.log(b1); // true
+        console.log(b2); // false
+        m.delete('xiaoming');
+        console.log(m.has('xiaoming')); //false
+        //一个key 只能 对应一个value 多次对同一个key放入value 会覆盖掉前面的值
+        m.set('xiaoli',10);
+        var xiaoli = m.get('xiaoli');
+        console.log(xiaoli);
+
+        //set 不存在重复的值
+        var s1 = new Set(['1','2',3,3,'3']);
+        console.log(s1);
+        s1.add('4');
+        s1.delete(3);
+        console.log(s1);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
