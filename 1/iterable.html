@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iterable</title>
+    <script>
+        'use strict';
+        //Array Set Map都属于iterable类型
+        //可以通过 for of循环遍历
+        //set map不支持 for in 只有array支持
+        var a = ['A','B','C'];
+        a.name = 'test';
+        for(var content of a){
+            console.log(content); //打出的是元素
+        }
+        for(var index in a){
+            console.log(index); // 0 1 2 name
+        }
+        var m = new Map([['liming',14],['lili',16]]);
+        for(var content of m){
+            console.log(content); //打印每个元素 [liming,14]...
+        }
+        var s = new Set(['Baidu','Tencent','alibaba']);
+        for(var content of s){
+            console.log(content);
+        }
+        //使用foreach遍历
+        m.forEach(function (element, index, m) {
+            console.log(element); //value
+            console.log(index); //key
+        })
+        a.forEach(function (element, index, a) {
+            console.log(element); // a b c
+            console.log(index); //0 1 2
+        })
+        //for in会遍历所有的属性 for of只遍历数组中自身的元素
+    </script>
+</head>
+<body>
+
+</body>
+</html>
