@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数定义和调用</title>
+    <script>
+        'use strict';
+        //函数定义的两种方式
+        function max1(a,b) {
+            if(a>b){
+                return a;
+            }else{
+                return b;
+            }
+        }
+        var max2 = function (a,b) {
+            if(a>b){
+                return a;
+            }else{
+                return b;
+            }
+        }
+        //arguments
+        //js函数可以接受任意个变量,可以使用arguments获取所有的参数
+        var abs = function (a) {
+            for(var i = 0;i<arguments.length;i++){
+                console.log(arguments[i]);
+            }
+            if(a >= 0){
+                return a;
+            }else{
+                return  -a;
+            }
+        }
+        var result = abs(2,3,5,6); //2
+        //函数定义中不写参数 也可以利用arguments获取
+
+        //rest参数 可变参数  如果不传参数 rest默认是一个空数组
+        function sum(...rest) {
+            var result = 0;
+            rest.forEach(function (element, index, rest) {
+                result = result + element;
+            })
+            console.log(rest);
+            return result;
+        }
+        var result1 = sum(1,2,3,4,5);
+        console.log(result1);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
