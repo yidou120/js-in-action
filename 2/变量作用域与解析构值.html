@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量作用域与解析构值</title>
+    <script>
+        'use strict';
+        //一个变量在函数体内声明 则它的作用域为整个函数体内
+        function foo() {
+            var x = 1;
+            x = x + 1;
+        }
+        //不同函数体内的同名变量互不影响 互相独立
+        function f1() {
+            var x = 2;
+            x = x + 2;
+        }
+        //函数嵌套 中 变量的作用域 : 内部函数可以访问外部函数变量 反之不行
+        function f() {
+            var x = 1;
+            function f2() {
+                var y = x + 1;
+                console.log(y);
+            }
+            f2();
+            // var z = y + 1;   //ReferenceError: y is not defined
+            //console.log(z);
+        }
+        f();
+        //如果内部函数和外部函数 变量同名 则遵循从内到外原则 内部函数会屏蔽外部函数同名变量
+        function fooo() {
+            var x = 1;
+            function barr() {
+                var x = 'A';
+                console.log('barr->'+x);
+            }
+            console.log(x);
+            barr();
+        }
+        fooo();
+
+        //变量提升 函数在执行时 会将所有变量提升到顶部 但只是提升变量声明 并不提升变量赋值
+        function f3() {
+            var x = 1;
+            console.log('hello->'+y);  //hello->undefined
+            var y = 2;
+        }
+        f3();
+
+        //全局作用域 默认不在函数体内的变量都属于全局作用域 都会绑定到默认的window对象上
+        var course = 'Learn JavaScript';
+        console.log(window.course);
+        console.log(course);
+        
+        //以下定义的函数也是一个全局变量
+        var result = function () {
+            return 0;
+        }
+        //顶层函数的定义也是一个全局变量
+        function f4() {
+            alert('global');
+        }
+        f4();
+        window.f4();
+
+        //名字空间 解决全局变量命名冲突问题
+        var MYAPP = {};
+        MYAPP.name = 'myapp';
+        MYAPP.version = 1.0;
+        MYAPP.foo = function () {
+            return 'foo';
+        }
+
+        //局部作用域
+        //js的变量作用域其实是函数内部 比如js中的for循环时
+    </script>
+</head>
+<body>
+
+</body>
+</html>
