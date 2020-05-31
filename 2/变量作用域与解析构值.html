@@ -73,6 +73,67 @@
 
         //局部作用域
         //js的变量作用域其实是函数内部 比如js中的for循环时
+        function sum() {
+            var result = 0;
+            for(var i=0;i<100;i++){
+                result = result + i;
+            }
+            console.log(i+100); //依旧可以引用i 200
+        }
+        //可以使用let声明一个块级作用域的变量
+        function sum1() {
+            var result = 0;
+            for(let i=0;i<100;i++){
+                result = result + i;
+            }
+            // console.log(i+100);  //ReferenceError: i is not defined
+        }
+
+        sum();
+        sum1();
+
+        //常量 const let 都具有块级作用域
+        const PI = 3.14;
+
+        //解析构值 可以对同一组/多个变量进行赋值
+        var [x,y,z] = ['hello','world','js'];
+        console.log(x);
+        console.log(y);
+        console.log(z);
+
+        //元素嵌套的话 要保持位置一致
+        var [i1,[i2,i3]] = ['t1',['t2','t3']];
+        console.log('i1->'+i1+'\n'+'i2->'+i2+'\n'+'i3->'+i3);
+
+        //从对象中获取属性 赋值给变量
+        var person = {
+            name:'edou',
+            sex:1,
+            city:'beijing'
+        }
+        // var {name,sex,city} = person;
+        // console.log('name->'+name+'\n'+'sex->'+sex+'\n'+'city->'+city);
+        //
+        // //解析构值使用默认值
+        // var {name,single=true} = person;
+        // console.log(name+'--'+single);
+
+        //变量名与属性名不一致 可以使用以下语法
+        var {name,city:address} = person;
+        //把city属性赋给变量adderss
+        console.log(city); //ReferenceError: city is not defined
+        console.log(address);
+
+        //有时候对于已声明的变量再使用解析赋值 会产生错误
+        var x,y;
+        // {x,y} = {name:'eee',sex:1};   //Uncaught SyntaxError: Unexpected token '='
+        //这是因为js会把{}当作语句块 自动加;
+        //解决方法是用()包裹解析赋值语句
+        var computer = {
+            id:'mac',
+            price:1111
+        }
+        ({id:x,price:y} = person);
     </script>
 </head>
 <body>
