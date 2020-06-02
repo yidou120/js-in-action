@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>方法</title>
+    <script>
+        'use strict';
+        //给一个对象绑定函数 其实这个函数就是这个对象的方法
+        var xiaoming = {
+            name:'小明',
+            birth:1998,
+            age:function () {
+                var y = new Date().getFullYear();
+                return y - this.birth;  //这里的this指向对象xiaoming
+            }
+        }
+        console.log(xiaoming.age());
+        //如果函数内部使用this调用对象 必须使用对象.方法()调用
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
