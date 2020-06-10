@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+    <script>
+        'use strict';
+        //filter用于过滤元素
+        var arr = [1, 2, 4, 5, 6, 9, 10, 15];
+        //过滤数组 只保留奇数 根据函数返回结果的true/false 删除或者保留元素
+        var result = arr.filter(function (x) {
+            return (x%2)!==0;
+        })
+        console.log(result);
+
+        //将空字符串过滤
+        var arr1 = ['A', '', 'B', null, undefined, 'C', '  '];
+        var result1 = arr1.filter(function (s) {
+            return s && s.trim();
+        });
+        console.log(result1);
+
+        //回调函数
+        var arr2 = ['A','B','C'];
+        //element代表元素 index 元素索引 self 数组本身
+        arr2.filter(function (e,i,s) {
+            console.log(e);
+            console.log(i);
+            console.log(s);
+            return true;
+        });
+
+        //过滤数组重复元素
+        var r,arr3 = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
+        r = arr3.filter(function (element,index,self) {
+            return self.indexOf(element) === index;
+        });
+        console.log(r);
+
+        //筛选素数
+        function get_primes(arr) {
+            return arr.filter(function (element, index, self) {
+                if(element===2){
+                    return true;
+                }else{
+                    return (element%2) !== 0;
+                }
+            })
+        };
+        // 测试:
+        var
+            x,
+            r,
+            arr = [];
+        for (x = 1; x < 100; x++) {
+            arr.push(x);
+        }
+        r = get_primes(arr);
+        if (r.toString() === [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97].toString()) {
+            console.log('测试通过!');
+        } else {
+            console.log('测试失败: ' + r.toString());
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
